@@ -1,13 +1,35 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: '"Delete S3 Objects" Action for Github Actions'
+description: |
+  Remove objects from a versioned or unversioned AWS S3 bucket. Specify an
+  optional `prefix` to limit the objects removed to only those objects whose
+  keys match this value. For versioned buckets, any objects whose key matches
+  the given prefix will have all versions removed.
+
+  This library uses the AWS SDK for Javascript, version 3. To configure the
+  authentication credentials and the region, please use the
+  aws-actions/configure-aws-credentials action.
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
+  bucket:
+    description: S3 bucket to remove objects from.
     required: true
-    default: '1000'
-outputs:
-  time: # output will be available to future steps
-    description: 'The message to output'
+  prefix:
+    description: |
+      Use this input to select only those keys that begin with the specified
+      prefix. If this input is left blank, all objects will be removed from the
+      bucket.
+    required: false
+    default: ''
+  allowEmptyPrefix:
+    description: |
+      When set to false, causes this action to throw an error when the `prefix`
+      is empty. This prevents buckets from being accidentally wiped out if
+      your action is misconfigured.
+    required: false
+    default: 'true'
+outputs: {}
 runs:
   using: 'node12'
   main: 'dist/index.js'
+branding:
+  color: red
+  icon: trash-2
