@@ -1,13 +1,5 @@
 name: '"Delete S3 Objects" Action for Github Actions'
-description: |
-  Remove objects from a versioned or unversioned AWS S3 bucket. Specify an
-  optional `prefix` to limit the objects removed to only those objects whose
-  keys match this value. For versioned buckets, any objects whose key matches
-  the given prefix will have all versions removed.
-
-  This library uses the AWS SDK for Javascript, version 3. To configure the
-  authentication credentials and the region, please use the
-  aws-actions/configure-aws-credentials action.
+description: Remove objects from a versioned or unversioned AWS S3 bucket.
 inputs:
   bucket:
     description: S3 bucket to remove objects from.
