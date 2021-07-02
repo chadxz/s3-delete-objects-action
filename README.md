@@ -26,7 +26,7 @@ None. The number of deleted objects is printed to core.info.
 ## example
 
 ```yml
-- uses: chadxz/s3-delete-objects-action@v0.0.1
+- uses: chadxz/s3-delete-objects-action@v0.1.0
   with:
     bucket: 'my-super-cool-bucket'
     prefix: 'garbage-files/'
